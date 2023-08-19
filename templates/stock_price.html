@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+        header {
+		    background-color: #333;
+		    color: #fff;
+		    padding: 20px;
+		    text-align: center;
+		    font-size: 36px;
+		    margin-bottom: 20px;
+	    }
+	    nav {
+		    background-color: #ccc;
+		    padding: 10px;
+		    overflow: hidden;
+			display: flex;
+  			justify-content: center;
+	    }
+	    nav a {
+		    float: left;
+		    display: block;
+		    color: #333;
+		    text-align: center;
+		    padding: 10px 20px;
+		    text-decoration: none;
+		    font-size: 18px;
+			margin: 0 10px;
+	    }
+	    nav a:hover {
+		    background-color: #ddd;
+	    }
+	    .container {
+		    max-width: 800px;
+		    margin: 0 auto;
+		    padding: 20px;
+		    background-color: #fff;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	    }	
+	    h1 {
+		    font-size: 32px;
+		    margin-top: 0;
+	    }
+	    p {
+		    margin: 0 0 10px 0;
+	    }
+	    .plotly-chart {
+	        margin: auto;
+	        max-width: 800px;
+	        height: 600px;
+	    }	
+    </style>
+</head>
+<body>
+    <header>{{ name }}</header>
+	<nav>
+		<a href="/">Home</a>
+		<a href="/sales_data">Sales Data</a>
+		<a href="/customer_data">Customer Data</a>
+		<a href="/product_data">Product Analysis</a>
+		<a href="/sales_pred">Sales Prediction</a>
+        <a href="/stock_price">Stock Price</a>
+	</nav>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <div class="plotly-chart">
+            {{ plot_div|safe }}
+        </div>
+        <h1>Stock Price Graph</h1>
+        <hr>
+        <h2>Closing Price vs Date</h2>
+        <img src="data:image/png;base64,{{ stock_plot }}" alt="Stock Price Graph">
+    </div>
+</body>
+</html>
